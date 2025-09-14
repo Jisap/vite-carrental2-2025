@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Luxora E-Class",
+    "type": "Luxury",
+    "image": "/Image/cars-slide-01.jpg",
+    "seats": "4 Seats",
+    "transmission": "Automatic",
+    "speed": "350 Km/h",
+    "price": "110"
+  },
+  {
+    "id": 2,
+    "name": "Z4 Roadster",
+    "type": "Convertibles",
+    "image": "/Image/cars-slide-02.jpg",
+    "seats": "4 Seats",
+    "transmission": "Automatic",
+    "speed": "250 Km/h",
+    "price": "210"
+  },
+  {
+    "id": 3,
+    "name": "Cayenne Turbo",
+    "type": "SUVs",
+    "image": "/Image/cars-slide-03.jpg",
+    "seats": "5 Seats",
+    "transmission": "Automatic",
+    "speed": "250 Km/h",
+    "price": "150"
+  },
+  {
+    "id": 4,
+    "name": "Martin Vantage",
+    "type": "Luxury",
+    "image": "/Image/cars-slide-04.jpg",
+    "seats": "2 Seats",
+    "transmission": "Automatic",
+    "speed": "314 Km/h",
+    "price": "910"
+  },
+  {
+    "id": 5,
+    "name": "LS 500",
+    "type": "Luxury Sedans",
+    "image": "/Image/cars-slide-05.jpg",
+    "seats": "7 Seats",
+    "transmission": "Automatic",
+    "speed": "350 Km/h",
+    "price": "250"
+  },
+  {
+    "id": 6,
+    "name": "Quattroporte",
+    "type": "Luxury Sedans",
+    "image": "/Image/cars-slide-06.jpg",
+    "seats": "5 Seats",
+    "transmission": "Automatic",
+    "speed": "250 Km/h",
+    "price": "620"
+  }
+]
