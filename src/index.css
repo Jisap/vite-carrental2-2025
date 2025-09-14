@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-
 @import "tailwindcss";
 
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: var(--Roboto-font);
+}
 
 :root {
   --prim-color: #e8021f;
@@ -38,3 +41,41 @@ body {
 
 /* La clase `.bricolage-font` ya no es necesaria. */
 /* Ahora puedes usar `font-bricolage` directamente en tu HTML/JSX. */
+
+.menu {
+  transition: var(--transition-regular) !important;
+}
+
+.menu li a {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  transition: var(--transition-regular);
+}
+
+.menu li a::after {
+  content: "";
+  position: absolute;
+  top:100%;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  border-radius: 10px;
+  background-color: var(--prim-color);
+  transition: var(--transition-regular);
+  z-index: -1;
+}
+
+.menu li a:hover::after {
+  width: 100%;
+}
+
+.menu li a:hover {
+  color: var(--prim-color)
+}
+
+@media screen and (max-width: 991px) {
+  .menu li a::after {
+    opacity: 0;
+  }
+}
