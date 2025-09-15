@@ -39,7 +39,9 @@ const Banner = () => {
           Book Auto Rental
         </h2>
 
-        <div className="bg-[#1f1f1f] text-white w-[90%] max-w-[1200%] mx-auto mt-[70px] rounded-3xl px-6 py-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="bg-[#1f1f1f] text-white w-[90%] max-w-[1200%] mx-auto mt-[70px] rounded-3xl px-6 py-4 
+        grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 shadow-lg z-50"
+        >
           {/* cars type */}
           <div className="relative w-full lg:w-auto px-4 py-3 group border-r border-gray-600">
             <buton className="flex items-center gap-2 w-full justify-between text-gray-400">
@@ -68,6 +70,51 @@ const Banner = () => {
                 </li>
               </ul>
             </div>
+          </div>
+
+          {/* pick location */}
+          <div className="relative w-full lg:w-auto px-4 py-3 group border-r border-gray-600">
+            <buton className="flex items-center gap-2 w-full justify-between text-gray-400">
+              Location Car<i className="ri-arrow-down-s-line text-primary"></i>
+            </buton>
+
+            <div
+              className="absolute top-[110%] left-0 w-48 bg-[#1f1f1f] border border-primary rounded-sm shadow-md opacity-0 scale-95 invisible 
+              group-hover:opacity-100 group-hover:scale-100 group-hover:visible transition-all duration-300 ease-out z-50"
+            >
+              <ul className="divide-y divide-gray-700">
+                <li className="px-4 py-2 hover:bg-primary transition cursor-pointer">
+                  Abu Dhabi
+                </li>
+                <li className="px-4 py-2 hover:bg-primary transition cursor-pointer">
+                  Alain
+                </li>
+                <li className="px-4 py-2 hover:bg-primary transition cursor-pointer">
+                  Dubai
+                </li>
+                <li className="px-4 py-2 hover:bg-primary transition cursor-pointer">
+                  Sharjah
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Pick Date */}
+          <div 
+            className="relative w-full lg:w-auto px-4 py-3 flex items-center border-r border-gray-600 cursor-pointer"
+            onClick={openCalendar}  
+          >
+            <DatePicker 
+              selected={pickUpDate}
+              onChange={(date) => setPickUpDate(date)}
+              dateFormat="dd MMM yyyy"
+              placeholderText="Pick Up Date"
+              ref={datePickerRef}
+              className={`bg-[#1f1f1f] text-white outline-none cursor-pointer w-full ${pickUpDate ? "text-gray-400" : ""}`}
+              calendarClassName="dark-datepicker"
+              popperPlacement="bottom-start"
+            />
+            <i className="ri-calendar-line text-primary pointer-events-none"></i>
           </div>
         </div>
       </div>
