@@ -105,16 +105,7 @@ body {
   z-index: -1;
   animation: Anim-zoom 2.5s 1.4s forwards linear;
 }
-/* --- CÓDIGO ANTERIOR (REFERENCIA) --- */
-/*
-.hero-slide2::before {
-  background-image: url(assets/hero-slide-2.webp);
-}
 
-.hero-slide3::before {
-  background-image: url(assets/hero-slide-3.webp);
-}
-*/
 .hero-slide::after {
   content: "";
   position: absolute;
