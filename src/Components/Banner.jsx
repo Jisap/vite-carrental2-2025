@@ -116,6 +116,33 @@ const Banner = () => {
             />
             <i className="ri-calendar-line text-primary pointer-events-none"></i>
           </div>
+
+          {/* Drop Location */}
+          <div className="relative w-full lg:w-auto px-4 py-3 group border-r border-gray-600">
+            <buton className="flex items-center gap-2 w-full justify-between text-gray-400">
+              Drop Off Location<i className="ri-arrow-down-s-line text-primary"></i>
+            </buton>
+
+            <div
+              className="absolute top-[110%] left-0 w-48 bg-[#1f1f1f] border border-primary rounded-sm shadow-md opacity-0 scale-95 invisible 
+              group-hover:opacity-100 group-hover:scale-100 group-hover:visible transition-all duration-300 ease-out z-50"
+            >
+              <ul className="divide-y divide-gray-700">
+                <li className="px-4 py-2 hover:bg-primary transition cursor-pointer">
+                  Drop Off Location
+                </li>
+                <li className="px-4 py-2 hover:bg-primary transition cursor-pointer">
+                  Alain
+                </li>
+                <li className="px-4 py-2 hover:bg-primary transition cursor-pointer">
+                  Dubai
+                </li>
+                <li className="px-4 py-2 hover:bg-primary transition cursor-pointer">
+                  Sharjah
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
