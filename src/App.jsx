@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Nav from "./Components/Nav"
+import Index from "./Pages/Index"
 
 function App() {
 
@@ -7,6 +8,9 @@ function App() {
     <>
       <Router>
         <Nav />
+        <Routes>
+          <Route path="/" element={<Index />}></Route>
+        </Routes>
       </Router>
     </>
   )
