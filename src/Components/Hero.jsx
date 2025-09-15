@@ -50,10 +50,19 @@ const Hero = () => {
       >
         {heroSlidesData.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className='hero-slide w-full h-full flex items-center px-[12%]' style={{ '--hero-bg-image': `url(${slide.image})` }}>
+            <div 
+              className='hero-slide w-full h-full flex items-center px-[12%]' 
+              style={{ 
+                '--hero-bg-image': `url(${slide.image})` // Establece la imagen de fondo mediante CSS que se aplica a la clase hero-slide
+              }}
+            >
               <div className='hero-content text-white lg:w-[60%]'>
-                <span className='font-bricolage text-xs sm:text-sm lg:text-md uppercase tracking-widest bg-[#e8021f] px-2 py-1 rounded-sm'>- Premium</span>
-                <h1 className='hero-title font-bricolage text-3xl sm:text-5xl md:text-6xl xl:text-7xl xxl:text-8xl font-medium my-3'>{slide.title}</h1>
+                <span className='font-bricolage text-xs sm:text-sm lg:text-md uppercase tracking-widest bg-[#e8021f] px-2 py-1 rounded-sm'>
+                  - Premium
+                </span>
+                <h1 className='hero-title font-bricolage text-3xl sm:text-5xl md:text-6xl xl:text-7xl xxl:text-8xl font-medium my-3'>
+                  {slide.title}
+                </h1>
                 <p className='hero-subtitle my-2 text-lg lg:text-2xl font-bricolage text-gray-300'>{slide.subtitle}</p>
                 <p className='hero-pere my-5 xl:my-7 lg:w-[60%] text-gray-300'>{slide.description}</p>
                 <div className='hero-btns flex flex-wrap gap-4 mt-5 lg:mt-8'>
