@@ -130,3 +130,59 @@ body {
     transform: scale(1.1);
   }
 }
+
+/* About */
+
+.curv {
+  background-color: var(--prim-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #111111;
+  padding: 15px;
+  border-radius: 0px 20px 0px 0px;
+}
+
+.about-item-curv {
+  @apply !bg-transparent;
+}
+
+.section-item-curv i {
+  @apply text-primary border-[1px] border-solid border-primary w-[60px] h-[60px] flex items-center justify-center rounded-full;
+}
+
+.section-item-curv i {
+  color:var(--prim-color);
+  border: 1px solid var(--prim-color);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+
+.curv::after {
+  content: "";
+  width: 1.125rem;
+  height: 1.125rem;
+  position: absolute;
+  background-color: transparent;
+  left: 0;
+  top: -1.125rem;
+  border-bottom-left-radius: 30px;
+  box-shadow: -5px 5px #111111;
+}
+
+
+.curv::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  background-color: transparent;
+  right: -20px;
+  bottom: 0rem;
+  border-bottom-left-radius: 30px;
+  box-shadow: -5px 5px 0 5px #111111;
+}
