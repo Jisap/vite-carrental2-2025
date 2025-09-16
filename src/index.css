@@ -226,4 +226,35 @@ body {
 }
 
 /* Services */
+/* .service-item { */
+  /* El padding y la transición ahora se manejan con Tailwind en el componente JSX */
+  /* padding: 60px 40px 120px 40px;
+  transition: var(--transition-regular);
 
+} */
+
+/* .service-item-curv { */
+  /* El color de fondo ahora se maneja con Tailwind: bg-[#111111] */
+  /* background-color: #111111;
+} */
+
+/* .section-item-curv { */
+  /* Todos estos estilos ahora se manejan con clases de Tailwind en el componente */
+  /* width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 1.2rem;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background-color: var(--prim-color);
+  transition: var(--transition-regular)
+} */
+
+/* .service-item:hover .section-item-curv { */
+  /* El efecto hover ahora se maneja con group-hover en Tailwind */
+  /* border: 2px solid #222;
+  background-color: transparent;
+} */
