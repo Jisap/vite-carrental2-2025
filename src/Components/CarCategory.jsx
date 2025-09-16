@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion'
-import carctg1 from '../assets/car-ctg-01.png'
-import carctg2 from '../assets/car-ctg-02.png'
-import carctg3 from '../assets/car-ctg-03.png'
-import carctg4 from '../assets/car-ctg-04.png'
+import { carctg1, carctg2, carctg3, carctg4 } from '../assets';
 
 const categoriesData = [
   {
