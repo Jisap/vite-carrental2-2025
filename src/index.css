@@ -150,7 +150,8 @@ body {
   left: 0;
   background-color: #111111;
   padding: 15px;
-  border-radius: 0px 20px 0px 0px;
+  /* Esquina superior derecha */
+  border-radius: 0px 20px 0px 0px; 
 }
 
 .about-item-curv {
@@ -180,6 +181,7 @@ body {
   background-color: transparent;
   left: 0;
   top: -1.125rem;
+  /* Esquina inferior izquierda del pseudo elemento after*/
   border-bottom-left-radius: 30px;
   box-shadow: -5px 5px #111111;
 }
@@ -193,6 +195,7 @@ body {
   background-color: transparent;
   right: -20px;
   bottom: 0rem;
+  /* Esquina inferior derecha del pseudo elemento before */ 
   border-bottom-left-radius: 30px;
   box-shadow: -5px 5px 0 5px #111111;
 }
@@ -222,5 +225,5 @@ body {
   z-index: -1;
 }
 
-/* Car Categories */
+/* Services */
 
