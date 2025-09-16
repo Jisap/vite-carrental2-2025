@@ -1,6 +1,7 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 
 const Banner = () => {
@@ -23,19 +24,48 @@ const Banner = () => {
     }
   }
 
+  // Variantes de Framer Motion para la animación
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
 
   return (
     <div className="banner lg:px-[12%] px-[8%] py-[50px] lg:py-[90px]">
-      <div className="banner-content text-center">
-        <p className="uppercase text-sm tracking-[5px] text-white mb-2">
+      <motion.div className="banner-content text-center"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        <motion.p variants={itemVariants} className="uppercase text-sm tracking-[5px] text-white mb-2">
           Rent Now
-        </p>
+        </motion.p>
         
-        <h2 className="text-4xl md:text-5xl font-bold mb-3 text-white font-bricolage">
+        <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-3 text-white font-bricolage">
           Book Auto Rental
-        </h2>
+        </motion.h2>
 
-        <div className="bg-[#1f1f1f] text-white w-[90%] max-w-[1200%] mx-auto mt-[70px] rounded-3xl px-6 py-4 
+        <motion.div variants={itemVariants} className="bg-[#1f1f1f] text-white w-[90%] max-w-[1200px] mx-auto mt-[70px] rounded-3xl px-6 py-4 
         grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 shadow-lg z-50"
         >
           {/* cars type */}
@@ -157,8 +187,8 @@ const Banner = () => {
             />
             <i className="ri-calendar-line text-primary pointer-events-none"></i>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }
