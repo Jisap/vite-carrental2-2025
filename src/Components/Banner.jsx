@@ -44,9 +44,9 @@ const Banner = () => {
         >
           {/* cars type */}
           <div className="relative w-full lg:w-auto px-4 py-3 group border-r border-gray-600">
-            <buton className="flex items-center gap-2 w-full justify-between text-gray-400">
+            <button className="flex items-center gap-2 w-full justify-between text-gray-400">
               Choose Car Type <i className="ri-arrow-down-s-line text-primary"></i>
-            </buton>
+            </button>
 
             <div 
               className="absolute top-[110%] left-0 w-48 bg-[#1f1f1f] border border-primary rounded-sm shadow-md opacity-0 scale-95 invisible 
@@ -74,9 +74,9 @@ const Banner = () => {
 
           {/* pick location */}
           <div className="relative w-full lg:w-auto px-4 py-3 group border-r border-gray-600">
-            <buton className="flex items-center gap-2 w-full justify-between text-gray-400">
+            <button className="flex items-center gap-2 w-full justify-between text-gray-400">
               Location Car<i className="ri-arrow-down-s-line text-primary"></i>
-            </buton>
+            </button>
 
             <div
               className="absolute top-[110%] left-0 w-48 bg-[#1f1f1f] border border-primary rounded-sm shadow-md opacity-0 scale-95 invisible 
@@ -119,9 +119,9 @@ const Banner = () => {
 
           {/* Drop Location */}
           <div className="relative w-full lg:w-auto px-4 py-3 group border-r lg:border-0 border-gray-600">
-            <buton className="flex items-center gap-2 w-full justify-between text-gray-400">
+            <button className="flex items-center gap-2 w-full justify-between text-gray-400">
               Drop Off Location<i className="ri-arrow-down-s-line text-primary"></i>
-            </buton>
+            </button>
 
             <div
               className="absolute top-[110%] left-0 w-48 bg-[#1f1f1f] border border-primary rounded-sm shadow-md opacity-0 scale-95 invisible 
