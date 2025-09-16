@@ -30,10 +30,22 @@ body {
 
 @theme {
   --color-primary: var(--prim-color);
-  --font-family-bricolage: var(--Bricolage-font);
-  --font-family-roboto: var(--Roboto-font);
-  --font-family-jost: var(--Jost-font);
+  --font-bricolage: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-roboto: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-jost: "Jost", ui-sans-serif, system-ui, sans-serif; 
 }
+
+.font-bricolage {
+  font-family: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif !important;
+} 
+
+.font-roboto {
+  font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif !important;
+}
+
+.font-jost {
+  font-family: 'Jost', ui-sans-serif, system-ui, sans-serif !important;
+} 
 
 /* Navbar */
 
@@ -42,8 +54,6 @@ body {
   @apply text-primary;
 }
 
-/* La clase `.bricolage-font` ya no es necesaria. */
-/* Ahora puedes usar `font-bricolage` directamente en tu HTML/JSX. */
 
 .menu {
   transition: var(--transition-regular) !important;
@@ -190,7 +200,8 @@ body {
 /* Banner */
 
 .banner {
-  background-image: url(assets/banner.webp);
+  /* Imagen fija aunque se haga scroll */
+  background-image: url(assets/banner.webp); 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -210,3 +221,6 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
   z-index: -1;
 }
+
+/* Car Categories */
+

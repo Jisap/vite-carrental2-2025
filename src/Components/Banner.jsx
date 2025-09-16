@@ -1,9 +1,5 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import carctg1 from '../assets/car-ctg-01.png'
-import carctg2 from '../assets/car-ctg-02.png'
-import carctg3 from '../assets/car-ctg-03.png'
-import carctg4 from '../assets/car-ctg-04.png'
 import { useRef, useState } from "react";
 
 
@@ -101,7 +97,7 @@ const Banner = () => {
 
           {/* Pick Date */}
           <div 
-            className="relative w-full lg:w-auto px-4 py-3 flex items-center border-r border-gray-600 cursor-pointer"
+            className="relative w-full lg:w-auto px-4 py-3 flex items-center justify-between border-r border-gray-600 cursor-pointer"
             onClick={openCalendar}  
           >
             <DatePicker 
@@ -146,7 +142,7 @@ const Banner = () => {
 
           {/* Return Date */}
           <div
-            className="relative w-full lg:w-auto px-4 py-3 flex items-center border-r border-gray-600"
+            className="relative w-full lg:w-auto px-4 py-3 flex items-center justify-between border-r border-gray-600"
             onClick={openReturnCalendar}
           >
             <DatePicker
