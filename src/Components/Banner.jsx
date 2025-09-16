@@ -18,7 +18,7 @@ const Banner = () => {
     }
   }
 
-  const [reuturnDate, setReturnDate] = useState(null);
+  const [returnDate, setReturnDate] = useState(null);
   const returnPickerRef = useRef(null);
   
   const openReturnCalendar = () => {
@@ -118,7 +118,7 @@ const Banner = () => {
           </div>
 
           {/* Drop Location */}
-          <div className="relative w-full lg:w-auto px-4 py-3 group border-r border-gray-600">
+          <div className="relative w-full lg:w-auto px-4 py-3 group border-r lg:border-0 border-gray-600">
             <buton className="flex items-center gap-2 w-full justify-between text-gray-400">
               Drop Off Location<i className="ri-arrow-down-s-line text-primary"></i>
             </buton>
@@ -142,6 +142,24 @@ const Banner = () => {
                 </li>
               </ul>
             </div>
+          </div>
+
+          {/* Return Date */}
+          <div
+            className="relative w-full lg:w-auto px-4 py-3 flex items-center border-r border-gray-600"
+            onClick={openReturnCalendar}
+          >
+            <DatePicker
+              selected={returnDate}
+              onChange={(date) => setReturnDate(date)}
+              dateFormat="dd MMM yyyy"
+              placeholderText="Return Date"
+              ref={returnPickerRef}
+              className={`bg-[#1f1f1f] text-white outline-none cursor-pointer w-full ${returnDate ? "text-gray-400" : ""}`}
+              calendarClassName="dark-datepicker"
+              popperPlacement="bottom-start"
+            />
+            <i className="ri-calendar-line text-primary pointer-events-none"></i>
           </div>
         </div>
       </div>
