@@ -220,6 +220,79 @@ const CarDetails = () => {
           </div>
         </div>
       </div>
+
+      {ShowModal && (
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4'>
+          <div className='bg-[#0d0d0d] border border-red-600/30 rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden'>
+            <div className='bg-red-600 px-6 py-4 flex items-center justify-between'>
+              <h2 className='text-xl font-bold text-white font-bricolage'>
+                Book Your Dream CAr
+              </h2>
+
+              <button
+                onClick={() => setShowModal(false)}
+                className='text-white text-2xl hover:scale-110 transition'
+              > 
+                <i className='fa-solid fa-xmark'></i>
+              </button>
+            </div>
+
+            <form 
+              className='p-6 space-y-6 my-2 popup-form'
+              onSubmit={(e) => {
+                e.preventDefault();
+                setShowSucessModal(true);
+                setShowModal(false);
+              }}
+            >
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+                <div className='relative'>
+                  <input 
+                    type='text'
+                    placeholder='Full Name'
+                    className='w-full h-[50px] ps-3 bg-[#121212] text-white rounded-sm border'
+                  />
+                </div>
+
+                <div className='relative'>
+                  <input 
+                    type='email'
+                    placeholder='Enter your Email'
+                    className='w-full h-[50px] ps-3 bg-[#121212] text-white rounded-sm border'
+                  />
+                </div>
+
+                <div className='relative'>
+                  <input 
+                    type='text'
+                    placeholder='Enter your Number'
+                    className='w-full h-[50px] ps-3 bg-[#121212] text-white rounded-sm border'
+                    required
+                  />
+                </div>
+
+                <div className='relative'>
+                  <select required className='w-full h-[50px] appearance-none ps-3 bg-[#121212] text-white rounded-md border'>
+                    <option hidden>Choose Your Car Type</option>
+                    <option>Lamborghini</option>
+                    <option>Roll Royce</option>
+                    <option>Bentley</option>
+                  </select>
+                </div>
+
+                <div className='relative'>
+                  <select required className='w-full h-[50px] appearance-none ps-3 bg-[#121212] text-white rounded-md border'>
+                    <option hidden>Pick-Up Location</option>
+                    <option>Dubai</option>
+                    <option>AbuDhabi</option>
+                    <option>Qatar</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   )
 }
