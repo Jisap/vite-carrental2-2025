@@ -80,24 +80,10 @@ const CarDetails = () => {
     )
   }
 
-  const [pickUpDate, setPickUpDate] = useState(null);
-  const [DropOffDate, setDropOffDate] = useState(null);
-  const datePickerRef = useRef(null);
-
-  const openCalendar = () => {
-    if (datePickerRef.current) {
-      datePickerRef.current.setFocus();
-    }
-  }
-
-  const [returnDate, setReturnDate] = useState(null);
-  const returnPickerRef = useRef(null);
-
-  const openReturnCalendar = () => {
-    if (returnPickerRef.current) {
-      returnPickerRef.current.setFocus();
-    }
-  }
+  const [pickUpDate, setPickUpDate] = useState(null); // Fecha de recogida
+  const [dropOffDate, setDropOffDate] = useState(null); // Fecha de devolución
+  const pickUpPickerRef = useRef(null);
+  const dropOffPickerRef = useRef(null);
 
   return (
     <>
@@ -118,9 +104,9 @@ const CarDetails = () => {
           </div>
         </div>
         
-        {/* Contenido principal */}
+        {/* --- CORRECCIÓN DE LAYOUT: Contenido principal --- */}
+        {/* Se mueve el contenido dentro del div con fondo para consistencia */}
         <div className='flex flex-col lg:flex-row gap-10 px-[12%] py-14 lg:items-start'>
-          {/* Left Column */}
           <div className='flex-1 space-y-12'>
             <section>
               <h2 className='text-2xl font-bold text-white mb-4 font-bricolage'>
@@ -172,7 +158,6 @@ const CarDetails = () => {
             </section>
           </div>
 
-          {/* Right Column */}
           <div className='w-full lg:w-[320px] space-y-6 bg-[#1a1a1a] rounded-2xl p-6 shadow-md h-fit sticky top-28'>
             <div className='text-center'>
               <p className='text-5xl font-bold text-white font-bricolage'>
@@ -200,8 +185,6 @@ const CarDetails = () => {
           </div>
         </div>
       </div>
-
-      {/* Modal para confirmar la reserva */}
       {ShowModal && (
         <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4'>
           <div className='bg-[#0d0d0d] border border-red-600/30 rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden'>
@@ -251,7 +234,44 @@ const CarDetails = () => {
                     )}
                   </div>
                 ))}
+
+                {/* Pick Up Date */}
+                <div 
+                  className="relative w-full h-[50px] px-3 flex items-center justify-between bg-[#121212] border border-gray-700 rounded-md cursor-pointer"
+                  onClick={() => openDatePicker(pickUpPickerRef)}
+                >
+                  <DatePicker 
+                    selected={pickUpDate}
+                    onChange={(date) => setPickUpDate(date)}
+                    dateFormat="dd MMM yyyy"
+                    placeholderText="Pick Up Date"
+                    ref={pickUpPickerRef}
+                    className="bg-transparent text-white outline-none cursor-pointer w-full"
+                    calendarClassName="dark-datepicker"
+                    popperPlacement="bottom-start"
+                  />
+                  <i className="ri-calendar-line text-red-600 pointer-events-none"></i>
+                </div>
+
+                {/* Drop Off Date */}
+                <div 
+                  className="relative w-full h-[50px] px-3 flex items-center justify-between bg-[#121212] border border-gray-700 rounded-md cursor-pointer"
+                  onClick={() => openDatePicker(dropOffPickerRef)}
+                >
+                  <DatePicker 
+                    selected={dropOffDate}
+                    onChange={(date) => setDropOffDate(date)}
+                    dateFormat="dd MMM yyyy"
+                    placeholderText="Drop Off Date"
+                    ref={dropOffPickerRef}
+                    className="bg-transparent text-white outline-none cursor-pointer w-full"
+                    calendarClassName="dark-datepicker"
+                    popperPlacement="bottom-start"
+                  />
+                  <i className="ri-calendar-line text-red-600 pointer-events-none"></i>
+                </div>
               </div>
+              
               <div className='pt-4'>
                 <button type='submit' className='w-full bg-red-600 text-white text-lg font-bold py-3 rounded-md hover:bg-red-700 transition'>
                   Confirm Booking
