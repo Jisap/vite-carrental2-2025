@@ -175,7 +175,7 @@ const CarDetails = () => {
             <li className='flex justify-between'>
               <span>
                 <span>
-                  <i className='ri-door-line text-red-600 mr-2'></i>
+                  <i className='ri-settings-2-line text-red-600 mr-2'></i>
                   Transmission
                 </span>
               </span>
@@ -185,7 +185,7 @@ const CarDetails = () => {
             <li className='flex justify-between'>
               <span>
                 <span>
-                  <i className='ri-door-line text-red-600 mr-2'></i>
+                  <i className='ri-suitcase-line text-red-600 mr-2'></i>
                   Luggage
                 </span>
               </span>
@@ -195,7 +195,7 @@ const CarDetails = () => {
             <li className='flex justify-between'>
               <span>
                 <span>
-                  <i className='ri-door-line text-red-600 mr-2'></i>
+                  <i className='ri-snowflake-line text-red-600 mr-2'></i>
                   Air Condition
                 </span>
               </span>
@@ -205,7 +205,7 @@ const CarDetails = () => {
             <li className='flex justify-between'>
               <span>
                 <span>
-                  <i className='ri-door-line text-red-600 mr-2'></i>
+                  <i className='ri-user-star-line text-red-600 mr-2'></i>
                   Age
                 </span>
               </span>
