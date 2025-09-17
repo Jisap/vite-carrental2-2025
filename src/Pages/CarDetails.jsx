@@ -80,10 +80,11 @@ const CarDetails = () => {
           className='relative h-[70vh] bg-cover bg-center flex items-end px-[12%] py-20'
           style={{ backgroundImage: `url(${car.image})` }}
         >
-          <div className='absolute inset-0 cars-det-section'></div>
+          {/* Overlay para mejorar la legibilidad del texto */}
+          <div className='absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/50 to-transparent'></div>
           <div className='relative z-10'>
             <h6 className='uppercase text-xl tracking-widest text-red-500 font-bricolage'>
-              Luxury Cars
+              {car.type}
             </h6>
             <h1 className='text-4xl lg:text-6xl font-bold font-bricolage'>
               {car.name}
@@ -91,7 +92,7 @@ const CarDetails = () => {
           </div>
         </div>
       </div>
-
+      
       <div className='flex flex-col lg:flex-row gap-10 px-[12%] py-14'>
         <div className='flex-1 space-y-12'>
           <section>
@@ -144,7 +145,7 @@ const CarDetails = () => {
           </section>
         </div>
 
-        <div className='w-full lg:w-[320px] space-y-6 bg-[#1a1a1a] rounded-2xl p-6 shadow-md h-full'>
+        <div className='w-full lg:w-[320px] space-y-6 bg-[#1a1a1a] rounded-2xl p-6 shadow-md h-fit sticky top-28'>
           <div className='text-center'>
             <p className='text-5xl font-bold text-white font-bricolage'>
               ${car.price} <span className='text-sm font-medium font-bricolage text-white'>/Rent Per Day</span>
