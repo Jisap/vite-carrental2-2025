@@ -16,11 +16,11 @@ const Car = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
         {cardata.map((car) => (
           <div key={car.id} className="car-item group bg-[#1e1f22] relative w-full">
-            <div className="car-image w-full relative h-[250px] overflow-hidden">
+            <div className="car-image w-full relative h-[250px] overflow-hidden after:content-[''] after:absolute after:inset-0 after:z-0 after:bg-gradient-to-b after:from-transparent after:to-[#1E1F22]">
               <img 
                 src={car.image} 
                 alt={car.title} 
-                className="w-full h-full object-contain md:object-center group-hover:scale-110 transition-all duration-300"
+                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
               />
 
               <div className="car-info absolute bottom-0 p-5 left-0 z-10">
