@@ -45,6 +45,33 @@ const CarDetails = () => {
     }
   ];
 
+  // --- REFACORIZACIÓN (DRY): Lista de detalles del coche ---
+  // Creamos un array para no repetir el código de cada <li>
+  const carDetailsList = [
+    { icon: 'ri-door-line', label: 'Doors', value: car?.seats },
+    { icon: 'ri-user-line', label: 'Passengers', value: car?.seats },
+    { icon: 'ri-settings-2-line', label: 'Transmission', value: car?.transmission },
+    { icon: 'ri-suitcase-line', label: 'Luggage', value: car?.type },
+    { icon: 'ri-snowflake-line', label: 'Air Condition', value: 'Yes' },
+    { icon: 'ri-user-star-line', label: 'Age', value: '25' },
+  ];
+
+  // --- REFACORIZACIÓN (DRY): Campos del formulario ---
+  // Definimos los campos en un array para generar el formulario dinámicamente
+  const formFields = [
+    { name: 'fullName', type: 'text', placeholder: 'Full Name' },
+    { name: 'email', type: 'email', placeholder: 'Enter your Email' },
+    { name: 'phone', type: 'text', placeholder: 'Enter your Number', required: true },
+    { name: 'carType', type: 'select', placeholder: 'Choose Your Car Type', options: ['Lamborghini', 'Roll Royce', 'Bentley'], required: true },
+    { name: 'pickupLocation', type: 'select', placeholder: 'Pick-Up Location', options: ['Dubai', 'AbuDhabi', 'Qatar'], required: true },
+  ];
+
+  // --- REFACORIZACIÓN (DRY): Lógica del DatePicker ---
+  // Unificamos la lógica para abrir los calendarios
+  const openDatePicker = (ref) => {
+    ref.current?.setFocus();
+  };
+
   if (!car) {
     return (
       <div className='text-white justify-center text-center mt-20'>
@@ -72,7 +99,6 @@ const CarDetails = () => {
     }
   }
 
-
   return (
     <>
       <div className='bg-[#121212] text-white font-sans'>
@@ -91,137 +117,91 @@ const CarDetails = () => {
             </h1>
           </div>
         </div>
-      </div>
-      
-      <div className='flex flex-col lg:flex-row gap-10 px-[12%] py-14'>
-        <div className='flex-1 space-y-12'>
-          <section>
-            <h2 className='text-2xl font-bold text-white mb-4 font-bricolage'>
-              General Information
-            </h2>
-            <p className='text-gray-400 text-sm mb-4'>
-              Enjoy a premiun car rental with experience with top-notch services and flexible conditions.
-            </p>
-            <ul className='space-y-2 text-sm text-gray-300'>
-              <li className='flex items-center hover:text-white transition'>
-                <i className='ri-check-line text-red-600 mr-2'></i>
-                24/7 Roadside Assistance
-              </li>
-              <li className='flex items-center hover:text-white transition'>
-                <i className='ri-check-line text-red-600 mr-2'></i>
-                Free Cancellation & Return
-              </li>
-              <li className='flex items-center hover:text-white transition'>
-                <i className='ri-check-line text-red-600 mr-2'></i>
-                Pay at arrival
-              </li>
-            </ul>
-          </section>
+        
+        {/* Contenido principal */}
+        <div className='flex flex-col lg:flex-row gap-10 px-[12%] py-14 lg:items-start'>
+          {/* Left Column */}
+          <div className='flex-1 space-y-12'>
+            <section>
+              <h2 className='text-2xl font-bold text-white mb-4 font-bricolage'>
+                General Information
+              </h2>
+              <p className='text-gray-400 text-sm mb-4'>
+                Enjoy a premiun car rental with experience with top-notch services and flexible conditions.
+              </p>
+              <ul className='space-y-2 text-sm text-gray-300'>
+                <li className='flex items-center hover:text-white transition'>
+                  <i className='ri-check-line text-red-600 mr-2'></i>
+                  24/7 Roadside Assistance
+                </li>
+                <li className='flex items-center hover:text-white transition'>
+                  <i className='ri-check-line text-red-600 mr-2'></i>
+                  Free Cancellation & Return
+                </li>
+                <li className='flex items-center hover:text-white transition'>
+                  <i className='ri-check-line text-red-600 mr-2'></i>
+                  Pay at arrival
+                </li>
+              </ul>
+            </section>
 
-          <section>
-            <h2 className='text-2xl text-white font-bold mb-4 font-bricolage'>
-              Rental Conditions
-            </h2>
+            <section>
+              <h2 className='text-2xl text-white font-bold mb-4 font-bricolage'>
+                Rental Conditions
+              </h2>
 
-            <div className='space-y-4'>
-              {rentalConditions.map((item, index) => (
-                <div key={index} className='bg-[#1a1a1a] text-white rounded-lg overflow-hidden'>
-                  <div onClick={() => toggleAccordion(index)} className='cursor-pointer px-6 py-4 flex justify-between items-center hover:bg-[#2a2a2a] transition duration-300'>
-                    <span className='font-medium text-sm'>
-                      {index + 1}. {item.title}
-                    </span>
-                    <i className={`ri-arrow-${openIndex === index ? "up" : "down"}-s-line text-red-600`}></i>
+              <div className='space-y-4'>
+                {rentalConditions.map((item, index) => (
+                  <div key={index} className='bg-[#1a1a1a] text-white rounded-lg overflow-hidden'>
+                    <div onClick={() => toggleAccordion(index)} className='cursor-pointer px-6 py-4 flex justify-between items-center hover:bg-[#2a2a2a] transition duration-300'>
+                      <span className='font-medium text-sm'>
+                        {index + 1}. {item.title}
+                      </span>
+                      <i className={`ri-arrow-${openIndex === index ? "up" : "down"}-s-line text-red-600`}></i>
+                    </div>
+
+                    <div className={`
+                    px-6 text-sm text-gray-400 overflow-hidden transition-all duration-500 ease-in-out
+                    ${openIndex === index ? "max-h-[300px] pt-5 pb-4" : "max-h-0 pt-0"}
+                  `}>
+                      {openIndex === index && <div>{item.description}</div>}
+                    </div>
                   </div>
+                ))}
+              </div>
+            </section>
+          </div>
 
-                  <div className={`
-                  px-6 text-sm text-gray-400 overflow-hidden transition-all duration-500 ease-in-out
-                  ${openIndex === index ? "max-h-[300px] pt-5 pb-4" : "max-h-0 pt-0"}
-                `}>
-                    {openIndex === index && <div>{item.description}</div>}
-                  </div>
-                </div>
-              ))}
+          {/* Right Column */}
+          <div className='w-full lg:w-[320px] space-y-6 bg-[#1a1a1a] rounded-2xl p-6 shadow-md h-fit sticky top-28'>
+            <div className='text-center'>
+              <p className='text-5xl font-bold text-white font-bricolage'>
+                ${car.price} <span className='text-sm font-medium font-bricolage text-white'>/Rent Per Day</span>
+              </p>
             </div>
-          </section>
-        </div>
 
-        <div className='w-full lg:w-[320px] space-y-6 bg-[#1a1a1a] rounded-2xl p-6 shadow-md h-fit sticky top-28'>
-          <div className='text-center'>
-            <p className='text-5xl font-bold text-white font-bricolage'>
-              ${car.price} <span className='text-sm font-medium font-bricolage text-white'>/Rent Per Day</span>
-            </p>
-          </div>
+            <ul className='space-y-3 text-sm text-gray-300'>
+              {carDetailsList.map((detail, index) => (
+                <li key={index} className='flex justify-between'>
+                  <span>
+                    <i className={`${detail.icon} text-red-600 mr-2`}></i>
+                    {detail.label}
+                  </span>
+                  <span>{detail.value}</span>
+                </li>
+              ))}
+            </ul>
 
-          <ul className='space-y-3 text-sm text-gray-300'>
-            <li className='flex justify-between'>
-              <span>
-                <span>
-                  <i className='ri-door-line text-red-600 mr-2'></i>
-                  Doors
-                </span>
-              </span>
-              <span>{car.seats}</span>
-            </li>
-
-            <li className='flex justify-between'>
-              <span>
-                <span>
-                  <i className='ri-user-line text-red-600 mr-2'></i>
-                  Passengers
-                </span>
-              </span>
-              <span>{car.seats}</span>
-            </li>
-
-            <li className='flex justify-between'>
-              <span>
-                <span>
-                  <i className='ri-settings-2-line text-red-600 mr-2'></i>
-                  Transmission
-                </span>
-              </span>
-              <span>{car.transmission}</span>
-            </li>
-
-            <li className='flex justify-between'>
-              <span>
-                <span>
-                  <i className='ri-suitcase-line text-red-600 mr-2'></i>
-                  Luggage
-                </span>
-              </span>
-              <span>{car.type}</span>
-            </li>
-
-            <li className='flex justify-between'>
-              <span>
-                <span>
-                  <i className='ri-snowflake-line text-red-600 mr-2'></i>
-                  Air Condition
-                </span>
-              </span>
-              <span>Yes</span>
-            </li>
-
-            <li className='flex justify-between'>
-              <span>
-                <span>
-                  <i className='ri-user-star-line text-red-600 mr-2'></i>
-                  Age
-                </span>
-              </span>
-              <span>25</span>
-            </li>
-          </ul>
-
-          <div className='flex gap-3'>
-            <button onClick={() => setShowModal(true)} className='flex-1 bg-red-600 text-white text-[20px] rounded-xl hover:bg-red-600 transition font-bricolage'>
-              Rent Now
-            </button>
+            <div className='flex gap-3'>
+              <button onClick={() => setShowModal(true)} className='flex-1 bg-red-600 text-white text-[20px] rounded-xl hover:bg-red-700 transition font-bricolage py-3'>
+                Rent Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Modal para confirmar la reserva */}
       {ShowModal && (
         <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4'>
           <div className='bg-[#0d0d0d] border border-red-600/30 rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden'>
@@ -247,48 +227,35 @@ const CarDetails = () => {
               }}
             >
               <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
-                <div className='relative'>
-                  <input 
-                    type='text'
-                    placeholder='Full Name'
-                    className='w-full h-[50px] ps-3 bg-[#121212] text-white rounded-sm border'
-                  />
-                </div>
-
-                <div className='relative'>
-                  <input 
-                    type='email'
-                    placeholder='Enter your Email'
-                    className='w-full h-[50px] ps-3 bg-[#121212] text-white rounded-sm border'
-                  />
-                </div>
-
-                <div className='relative'>
-                  <input 
-                    type='text'
-                    placeholder='Enter your Number'
-                    className='w-full h-[50px] ps-3 bg-[#121212] text-white rounded-sm border'
-                    required
-                  />
-                </div>
-
-                <div className='relative'>
-                  <select required className='w-full h-[50px] appearance-none ps-3 bg-[#121212] text-white rounded-md border'>
-                    <option hidden>Choose Your Car Type</option>
-                    <option>Lamborghini</option>
-                    <option>Roll Royce</option>
-                    <option>Bentley</option>
-                  </select>
-                </div>
-
-                <div className='relative'>
-                  <select required className='w-full h-[50px] appearance-none ps-3 bg-[#121212] text-white rounded-md border'>
-                    <option hidden>Pick-Up Location</option>
-                    <option>Dubai</option>
-                    <option>AbuDhabi</option>
-                    <option>Qatar</option>
-                  </select>
-                </div>
+                {formFields.map((field) => (
+                  <div key={field.name} className='relative'>
+                    {field.type === 'select' ? (
+                      <select
+                        name={field.name}
+                        required={field.required}
+                        className='w-full h-[50px] appearance-none ps-3 bg-[#121212] text-white rounded-md border border-gray-700 focus:border-red-600 outline-none'
+                      >
+                        <option hidden>{field.placeholder}</option>
+                        {field.options.map((option) => (
+                          <option key={option}>{option}</option>
+                        ))}
+                      </select>
+                    ) : (
+                      <input
+                        name={field.name}
+                        type={field.type}
+                        placeholder={field.placeholder}
+                        required={field.required}
+                        className='w-full h-[50px] ps-3 bg-[#121212] text-white rounded-md border border-gray-700 focus:border-red-600 outline-none'
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className='pt-4'>
+                <button type='submit' className='w-full bg-red-600 text-white text-lg font-bold py-3 rounded-md hover:bg-red-700 transition'>
+                  Confirm Booking
+                </button>
               </div>
             </form>
           </div>
