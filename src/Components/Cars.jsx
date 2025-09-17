@@ -1,25 +1,81 @@
-import { Link } from "react-router-dom"
-import  cardata from "../../Cars.json"
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import cardata from "../../Cars.json";
 
 const Car = () => {
+  // Variantes para el contenedor para escalonar las animaciones de los hijos
+  const gridContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  // Variantes para cada elemento de coche
+  const carItemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  // Variantes para la sección del título
+  const titleVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className='car lg:px-[12%] px-[8%] py-[50px] lg:py-[90px]'>
-      <div className='car-categories-content text-center mb-10 lg:mb-14'>
+    <div className="car lg:px-[12%] px-[8%] py-[50px] lg:py-[90px]">
+      <motion.div
+        variants={titleVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        className="car-categories-content text-center mb-10 lg:mb-14"
+      >
         <p className='uppercase text-sm tracking-[5px] mb-2 text-primary'>
           - Car Categories -
         </p>
         <h2 className='text-4xl md:text-5xl font-bold mb-3 text-white font-bricolage'>
           Choose the Right Car Find your Trip
         </h2>
-      </div>
+      </motion.div>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
+      <motion.div
+        variants={gridContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
+      >
         {cardata.map((car) => (
-          <div key={car.id} className="car-item group bg-[#1e1f22] relative w-full">
+          <motion.div
+            key={car.id}
+            variants={carItemVariants}
+            whileHover={{ y: -8 }}
+            transition={{ duration: 0.3 }}
+            className="car-item group bg-[#1e1f22] relative w-full"
+          >
             <div className="car-image w-full relative h-[250px] overflow-hidden after:content-[''] after:absolute after:inset-0 after:z-0 after:bg-gradient-to-b after:from-transparent after:to-[#1E1F22]">
-              <img 
-                src={car.image} 
-                alt={car.title} 
+              <img
+                src={car.image}
+                alt={car.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
               />
 
@@ -38,15 +94,15 @@ const Car = () => {
               <ul className="flex gap-3 justify-between items-center flex-wrap">
                 <li className="text-gray-300 text-lg md:text-xl">
                   <i className="fa-regular fa-user text-primary pe-2"></i>
-                    {car.seats} Seats
+                  {car.seats} Seats
                 </li>
                 <li className="text-gray-300 text-lg md:text-xl">
                   <i className="fa-regular fa-user text-primary pe-2"></i>
-                    {car.transmission} 
+                  {car.transmission}
                 </li>
                 <li className="text-gray-300 text-lg md:text-xl">
                   <i className="fa-regular fa-user text-primary pe-2"></i>
-                    {car.speed} 
+                  {car.speed}
                 </li>
               </ul>
 
@@ -56,17 +112,21 @@ const Car = () => {
                 </h4>
 
                 <Link to={`/car/${car.id}`}>
-                  <button className=" text-white bg-red-600 px-5 py-3 text-lg md:text-xl rounded-full cursor-pointer">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className=" text-white bg-red-600 px-5 py-3 text-lg md:text-xl rounded-full cursor-pointer"
+                  >
                     Book Now
-                  </button>
+                  </motion.button>
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Car
+export default Car;
