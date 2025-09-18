@@ -6,6 +6,7 @@ import CarCategory from '../Components/CarCategory'
 import Brand from '../Components/Brand'
 import Service from '../Components/Service'
 import Cars from '../Components/Cars'
+import Testimonials from '../Components/Testimonials'
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <Brand />
       <Service />
       <Cars />
+      <Testimonials />
     </>
   )
 }
