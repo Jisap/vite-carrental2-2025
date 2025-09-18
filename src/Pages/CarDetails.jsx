@@ -88,6 +88,7 @@ const CarDetails = () => {
     { name: 'phone', type: 'text', placeholder: 'Enter your Number', required: true },
     { name: 'carType', type: 'select', placeholder: 'Choose Your Car Type', options: ['Lamborghini', 'Roll Royce', 'Bentley'], required: true },
     { name: 'pickupLocation', type: 'select', placeholder: 'Pick-Up Location', options: ['Dubai', 'AbuDhabi', 'Qatar'], required: true },
+    { name: 'dropOffLocation', type: 'select', placeholder: 'Drop-Off Location', options: ['Dubai', 'AbuDhabi', 'Qatar'], required: true },
   ];
 
   // --- REFACORIZACIÓN (DRY): Lógica del DatePicker ---
