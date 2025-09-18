@@ -15,9 +15,23 @@ const Blog = () => {
 
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
         {blogData.slice(0,3).map((blog) => (
-          <div key={blog.id} className='blog-item bg-[#1r1f22] group'>
+          <div key={blog.id} className='blog-item bg-[#1e1f22] group'>
             <div className='blog-image overflow-hidden'>
-              <img src={blog.image} alt={blog.name} className='w-full h-full object-cover group-hover:scale-110 transition-all duration-300' />
+              <img 
+                src={blog.image} 
+                alt={blog.name} 
+                className='w-full h-full object-cover group-hover:scale-110 transition-all duration-300' 
+              />
+            </div>
+
+            <div className='blog-content p-5 py-8'>
+              <div className='ate bg-red-600 w-fit px-4 py-0.5 text-md text-white font-bricolage rounded-md mb-3'>
+                {blog.date}
+              </div>
+
+              <h4 className='text-lg lg:text-2xl font-bricolage text-white font-semibold uppercase'>
+                {blog.name}
+              </h4>
             </div>
           </div>
         ))}
