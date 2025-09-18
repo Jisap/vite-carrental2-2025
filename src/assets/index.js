@@ -20,6 +20,12 @@ import carctg2 from './car-ctg-02.png';
 import carctg3 from './car-ctg-03.png';
 import carctg4 from './car-ctg-04.png';
 
+import test1 from './test-1.jpg';
+import test2 from './test-2.jpg';
+import test3 from './test-3.jpg';
+import test4 from './test-4.jpg';
+import test5 from './test-5.jpg';
+
 export {
   brand1,
   brand2,
@@ -41,4 +47,9 @@ export {
   carctg2,
   carctg3,
   carctg4,
+  test1,
+  test2,
+  test3,
+  test4,
+  test5,
 };
