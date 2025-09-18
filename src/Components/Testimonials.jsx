@@ -1,7 +1,7 @@
 import React from 'react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { test1, test2, test3 } from '../assets'
+import { test1, test2, test3, test4 } from '../assets'
 import { motion } from 'framer-motion'
 
 // --- REFACTORIZACIÓN (DRY): Datos de los testimonios ---
@@ -25,12 +25,28 @@ const testimonialsData = [
   },
   {
     id: 3,
-    quote: "An unforgettable experience for our special occasion. The selection of cars is incredible. Will definitely be back!",
+    quote: "An unforgettable experience for our special occasion. The selection of cars is incredible.",
     author: "David L",
     title: "Event Planner",
     image: test3,
     rating: 5,
   },
+  {
+    id: 4,
+    quote: "Awesome experience. The selection of cars is incredible, and the driver service is the best I have ever experienced.",
+    author: "David L",
+    title: "Customer Service",
+    image: test4,
+    rating: 4,
+  },
+  {
+    id: 5,
+    quote: "We had a great experience and out selection was amazing. Highly recommended!",
+    author: "Robet S.",
+    title: "Engineer",
+    image: test4,
+    rating: 5,
+  }
 ];
 
 // --- CORRECCIÓN DE LOOP EN SWIPER ---
@@ -76,11 +92,17 @@ const Testimonials = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.5 }}
       >
-        <motion.p variants={itemVariants} className='uppercase text-sm tracking-[5px] text-primary mb-2'>
+        <motion.p 
+          variants={itemVariants} 
+          className='uppercase text-sm tracking-[5px] text-primary mb-2'
+        >
           - Testimonials -
         </motion.p>
 
-        <motion.h2 variants={itemVariants} className='text-4xl md:text-5xl font-bold mb-3 font-bricolage'>
+        <motion.h2 
+          variants={itemVariants} 
+          className='text-4xl md:text-5xl font-bold mb-3 font-bricolage'
+        >
           Trusted by Thousands <span className='text-primary font-bricolage'>of Ridelux.</span>
         </motion.h2>
       </motion.div>
@@ -97,7 +119,6 @@ const Testimonials = () => {
           pagination={{ clickable: true }}
           loop={true}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          // --- MEJORA: Se añade una velocidad de transición más lenta para un movimiento más suave ---
           speed={1000}
           breakpoints={{
             640: { slidesPerView: 1 },
