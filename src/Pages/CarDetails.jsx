@@ -372,6 +372,15 @@ const CarDetails = () => {
                     />
                     <i className="ri-calendar-line text-red-600 pointer-events-none"></i>
                   </div>
+
+                  <div className='relative md:col-span-2'>
+                    <textarea
+                      name="message"
+                      rows="3"
+                      placeholder='Send Message'
+                      className='w-full p-3 bg-[#121212] text-white rounded-md border border-gray-700 focus:border-red-600 outline-none resize-none appearance-none'
+                    ></textarea>
+                  </div>
                 </div>
 
                 <div className='pt-4'>
