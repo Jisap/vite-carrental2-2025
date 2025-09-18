@@ -7,6 +7,7 @@ import Brand from '../Components/Brand'
 import Service from '../Components/Service'
 import Cars from '../Components/Cars'
 import Testimonials from '../Components/Testimonials'
+import Blog from '../Components/Blog'
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <Service />
       <Cars />
       <Testimonials />
+      <Blog />
     </>
   )
 }

@@ -135,7 +135,7 @@ const Testimonials = () => {
                   <div className='flex space-x-1'>
                     {/* --- Renderiza las estrellas llenas --- */}
                     {Array(testimonial.rating).fill().map((_, index) => (
-                      <span key={index} className='text-white text-xl fa-solid fa-star'></span>
+                      <span key={index} className='text-yellow-600 text-xl fa-solid fa-star'></span>
                     ))}
                     {/* --- Renderiza las estrellas vacías --- */} 
                     {Array(5 - testimonial.rating).fill().map((_, index) => (
