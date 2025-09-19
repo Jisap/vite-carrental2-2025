@@ -102,6 +102,44 @@ const Cars = () => {
               ))}
             </ul>
           </div>
+
+          <div className='mb-6'>
+            <h4 className='font-semibold font-bricolage text-white text-2xl mb-3'>
+              Pickup Locations
+            </h4>
+
+            <ul className='text-md space-y-2 text-gray-400'>
+              {pickupLocations.map((loc) => (
+                <li key={loc} className='flex items-center gap-2'>
+                  <input 
+                    type='checkbox' 
+                    checked={selectedPickup.includes(loc)}
+                    onChange={() => handleCheckboxChange(loc, selectedPickup, setSelectedPickup)}
+                  />
+                  <span className='hover:text-white transition-colors duration-300'>{loc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className='mb-6'>
+            <h4 className='font-semibold font-bricolage text-white text-2xl mb-3'>
+              Dropoff Locations
+            </h4>
+
+            <ul className='text-md space-y-2 text-gray-400'>
+              {dropoffLocations.map((drop) => (
+                <li key={drop} className='flex items-center gap-2'>
+                  <input
+                    type='checkbox'
+                    checked={selectedDropoff.includes(drop)}
+                    onChange={() => handleCheckboxChange(drop, selectedDropoff, setSelectedDropoff)}
+                  />
+                  <span className='hover:text-white transition-colors duration-300'>{drop}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </>
