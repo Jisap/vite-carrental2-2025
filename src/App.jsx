@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 import Nav from "./Components/Nav";
 import Index from "./Pages/Index";
+import Cars from "./Pages/Cars";
 import CarDetails from "./Pages/CarDetails";
 import Footer from "./Components/Footer";
 
@@ -44,6 +45,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Index />}></Route>
+          <Route path="/cars" element={<Cars />}></Route>
           <Route path="/car/:id" element={<CarDetails />}></Route>
         </Routes>
         <Footer />
