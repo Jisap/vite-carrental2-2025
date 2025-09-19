@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import cardata from '../../Cars.json'
+import cardata from '../data/Cars.json'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useParams } from 'react-router-dom';

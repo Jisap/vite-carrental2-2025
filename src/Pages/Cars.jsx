@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import carddata from '../../Cars.json';
+import carddata from '../data/Cars.json';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Cars = () => {
+
 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -59,22 +61,62 @@ const Cars = () => {
     return matchesSearch && matchesCategory && matchesPickup && matchesDropoff;
   })
 
+  // Variantes para la animación del contenedor de la lista de coches
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  // Variantes para la animación de cada tarjeta de coche
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+    exit: {
+      y: -20,
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
   return (
     <>
-      <div className='banner-section flex justify-center items-center h-[350px] lg:h-[550px]'>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        className='banner-section flex justify-center items-center h-[350px] lg:h-[550px]'
+      >
         <div className='banner-section-content text-center z-10'>
           <h6 className='uppercase text-sm lg:text-xl text-white font-bricolage'> 
             - RENT NOW -
           </h6>
-
           <h1 className='text-4xl lg:text-5xl xl:text-8xl font-semibold font-bricolage text-red-600'>
             <span className='text-white font-bricolage'>Select</span> Luxury Car
           </h1>
         </div>
-      </div>
+      </motion.div>
 
       <div className='flex flex-col-reverse md:flex-row gap-8 lg:px-[12%] px-[8%] py-[50px] lg:py-[90px]'>
-        <div className='w-full sticky top-0 md:w-[300px] bg-[#1e1f22] rounded-2xl p-6 shadow-lg animate-side-left h-full'>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: 'easeInOut' }}
+          className='w-full sticky top-0 md:w-[300px] bg-[#1e1f22] rounded-2xl p-6 shadow-lg h-full'
+        >
           <div className='mb-6'>
             <input 
               type='text' 
@@ -141,71 +183,77 @@ const Cars = () => {
               ))}
             </ul>
           </div>
-        </div>
+        </motion.div>
 
-        <div className='flex-1 animate-fade-in'>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {filteredCars.length > 0 ? (
-              filteredCars.map((car) => (
-                <div
-                  key={car.id}
-                  className="car-item group bg-[#1e1f22] relative w-full"
+        <motion.div layout className='flex-1'>
+          <motion.div layout className='grid grid-cols-1 xl:grid-cols-2 gap-6'>
+            <AnimatePresence>
+              {filteredCars.length > 0 ? (
+                filteredCars.map((car) => (
+                  <motion.div
+                    layout
+                    key={car.id}
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="car-item group bg-[#1e1f22] relative w-full overflow-hidden rounded-lg"
+                  >
+                    <div className="car-image w-full relative h-[250px] overflow-hidden after:content-[''] after:absolute after:inset-0 after:z-0 after:bg-gradient-to-b after:from-transparent after:to-[#1E1F22]">
+                      <img
+                        src={car.image}
+                        alt={car.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
+                      />
+                      <div className="car-info absolute bottom-0 p-5 left-0 z-10">
+                        <h4 className="text-2xl md:text-3xl font-bricolage text-white font-semibold">
+                          {car.name}
+                        </h4>
+                        <span className="text-red-100 font-bricolage text-xl">
+                          {car.type}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="car-content p-5 py-10 relative">
+                      <ul className="flex gap-3 justify-between items-center flex-wrap">
+                        <li className="text-gray-300 text-lg md:text-xl">
+                          <i className="fa-regular fa-user text-primary pe-2"></i>
+                          {car.seats} Seats
+                        </li>
+                        <li className="text-gray-300 text-lg md:text-xl">
+                          <i className="fa-regular fa-user text-primary pe-2"></i>
+                          {car.transmission}
+                        </li>
+                        <li className="text-gray-300 text-lg md:text-xl">
+                          <i className="fa-regular fa-user text-primary pe-2"></i>
+                          {car.speed}
+                        </li>
+                      </ul>
+                      <div className="flex justify-between items-center mt-12">
+                        <h4 className="text-2xl md:text-4xl font-bold font-bricolage text-white">
+                          $ {car.price}/day
+                        </h4>
+                        <Link to={`/car/${car.id}`}>
+                          <button className=" text-white bg-red-600 px-5 py-3 text-lg md:text-xl rounded-full cursor-pointer">
+                            Book Now
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))
+              ) : (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className='text-white text-xl col-span-full text-center'
                 >
-                  <div className="car-image w-full relative h-[250px] overflow-hidden after:content-[''] after:absolute after:inset-0 after:z-0 after:bg-gradient-to-b after:from-transparent after:to-[#1E1F22]">
-                    <img
-                      src={car.image}
-                      alt={car.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
-                    />
-
-                    <div className="car-info absolute bottom-0 p-5 left-0 z-10">
-                      <h4 className="text-2xl md:text-3xl font-bricolage text-white font-semibold">
-                        {car.name}
-                      </h4>
-
-                      <span className="text-red-100 font-bricolage text-xl">
-                        {car.type}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="car-content p-5 py-10 relative">
-                    <ul className="flex gap-3 justify-between items-center flex-wrap">
-                      <li className="text-gray-300 text-lg md:text-xl">
-                        <i className="fa-regular fa-user text-primary pe-2"></i>
-                        {car.seats} Seats
-                      </li>
-                      <li className="text-gray-300 text-lg md:text-xl">
-                        <i className="fa-regular fa-user text-primary pe-2"></i>
-                        {car.transmission}
-                      </li>
-                      <li className="text-gray-300 text-lg md:text-xl">
-                        <i className="fa-regular fa-user text-primary pe-2"></i>
-                        {car.speed}
-                      </li>
-                    </ul>
-
-                    <div className="flex justify-between items-center mt-12">
-                      <h4 className="text-2xl md:text-4xl font-bold font-bricolage text-white">
-                        $ {car.price}/day
-                      </h4>
-
-                      <Link to={`/car/${car.id}`}>
-                        <button
-                          className=" text-white bg-red-600 px-5 py-3 text-lg md:text-xl rounded-full cursor-pointer"
-                        >
-                          Book Now
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))
-            ):( 
-              <p className='text-white text-xl'>No cars found</p>
-            )}
-          </div>
-        </div>
+                  No cars found
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </motion.div>
       </div>
     </>
   )

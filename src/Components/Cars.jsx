@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import cardata from "../../Cars.json";
+import cardata from "../data/Cars.json";
 
 const Car = () => {
   // Variantes para el contenedor para escalonar las animaciones de los hijos
