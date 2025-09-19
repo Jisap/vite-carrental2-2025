@@ -4,6 +4,7 @@ import Lenis from "@studio-freight/lenis";
 import Nav from "./Components/Nav";
 import Index from "./Pages/Index";
 import CarDetails from "./Pages/CarDetails";
+import Footer from "./Components/Footer";
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/" element={<Index />}></Route>
           <Route path="/car/:id" element={<CarDetails />}></Route>
         </Routes>
+        <Footer />
       </Router>
     </>
   )
