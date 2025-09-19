@@ -41,17 +41,19 @@ const Cars = () => {
       selectedCategories.includes(car.type);
 
     // Condición 3: Coincidencia con las ubicaciones de recogida.
-    // La lógica es similar a la de categorías. Pasa el filtro si no hay ninguna ubicación seleccionada
-    // o si la ubicación de recogida (`car.pickup`) del coche es alguna (`some`) de las seleccionadas.
+    // Un coche pasa este filtro si:
+    // a) No se ha seleccionado ninguna ubicación.
+    // b) Alguna de las ubicaciones seleccionadas por el usuario (`selectedPickup`) está incluida
+    //    en el array de ubicaciones de recogida del coche (`car.pickup`).
     const matchesPickup =
       selectedPickup.length === 0 ||
-      selectedPickup.some((loc) => car.pickup === loc);
+      selectedPickup.some(loc => car.pickup.includes(loc));
 
     // Condición 4: Coincidencia con las ubicaciones de entrega.
     // Funciona igual que el filtro de recogida, pero para la propiedad `car.dropoff`.
     const matchesDropoff =
       selectedDropoff.length === 0 ||
-      selectedDropoff.some((loc) => car.dropoff === loc);
+      selectedDropoff.some(loc => car.dropoff.includes(loc));
 
     // El coche solo se incluirá en `filteredCars` si TODAS las condiciones anteriores son verdaderas.
     return matchesSearch && matchesCategory && matchesPickup && matchesDropoff;

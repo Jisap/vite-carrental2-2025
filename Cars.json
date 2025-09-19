@@ -7,7 +7,19 @@
     "seats": "4 Seats",
     "transmission": "Automatic",
     "speed": "350 Km/h",
-    "price": "110"
+    "price": "110",
+    "pickup": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ],
+    "dropoff": [
+        "Abu Dhabi",
+        "Dubai",
+        "Sharjah",
+        "Alain"
+    ]
   },
   {
     "id": 2,
@@ -17,7 +29,19 @@
     "seats": "4 Seats",
     "transmission": "Automatic",
     "speed": "250 Km/h",
-    "price": "210"
+    "price": "210",
+    "pickup": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ],
+    "dropoff": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ]
   },
   {
     "id": 3,
@@ -27,7 +51,19 @@
     "seats": "5 Seats",
     "transmission": "Automatic",
     "speed": "250 Km/h",
-    "price": "150"
+    "price": "150",
+    "pickup": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ],
+    "dropoff": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ]
   },
   {
     "id": 4,
@@ -37,7 +73,19 @@
     "seats": "2 Seats",
     "transmission": "Automatic",
     "speed": "314 Km/h",
-    "price": "910"
+    "price": "910",
+    "pickup": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ],
+    "dropoff": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ]
   },
   {
     "id": 5,
@@ -47,7 +95,19 @@
     "seats": "7 Seats",
     "transmission": "Automatic",
     "speed": "350 Km/h",
-    "price": "250"
+    "price": "250",
+    "pickup": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ],
+    "dropoff": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ]
   },
   {
     "id": 6,
@@ -57,6 +117,18 @@
     "seats": "5 Seats",
     "transmission": "Automatic",
     "speed": "250 Km/h",
-    "price": "620"
+    "price": "620",
+    "pickup": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ],
+    "dropoff": [
+      "Abu Dhabi",
+      "Dubai",
+      "Sharjah",
+      "Alain"
+    ]
   }
 ]
