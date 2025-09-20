@@ -21,6 +21,8 @@ import AboutComponent from "../Components/About"
 import Car from "../Components/Cars"
 import CarCategory from "../Components/CarCategory"
 import Banner from "../Components/Banner"
+import Service from "../Components/Service"
+import Teams from "../Components/Teams"
 
 
 
@@ -112,6 +114,8 @@ const About = () => {
         <AboutComponent />
         <Banner />
         <CarCategory />
+        <Service />
+        <Teams />
       </div>
     </>
   )

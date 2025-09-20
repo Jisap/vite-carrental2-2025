@@ -143,6 +143,8 @@ body {
 
 /* About */
 
+/* Crea un bloque en la esquina inferior izquierda de su elemento padre con una
+esquina superior derecha redondeada */
 .curv {
   background-color: var(--prim-color);
   position: absolute;
@@ -158,6 +160,7 @@ body {
   @apply !bg-transparent;
 }
 
+/* Estiliza el icono que va dentro del contenedor curv */
 .section-item-curv i {
   @apply text-primary border-[1px] border-solid border-primary w-[60px] h-[60px] flex items-center justify-center rounded-full;
 }
@@ -173,6 +176,8 @@ body {
   border-radius: 100%;
 }
 
+/* Este pseudo-elemento crea la muesca exterior,
+la que parece "comerse" un trozo del borde superior. */
 .curv::after {
   content: "";
   width: 1.125rem;
@@ -186,7 +191,8 @@ body {
   box-shadow: -5px 5px #111111;
 }
 
-
+/* Este pseudo-elemento crea la muesca interior,
+la que parece cortar la esquina del propio elemento .curv. */
 .curv::before {
   content: "";
   width: 1.5rem;
@@ -290,4 +296,60 @@ body {
   height: 100%;
   background-color: var(--black-color);
   opacity: .7;
+}
+
+.our-team {
+  height: 550px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Crea un degradado de fondo sobre el contenido de la imagen */
+.our-team::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(17, 17, 17, 1) 5%, rgba(17, 17, 17, 0.8) 25%, transparent 60%);
+}
+
+/* Controlan la imagen y su animación de zoom */
+.our-team img {
+  width: 100%;
+  height: 100%;
+  transition: var(--transition-regular);
+}
+
+.our-team:hover img {
+  transform: scale(1.1);
+}
+
+/* Estilizan el icono de la esquina */
+.our-team .section-item-curv,
+.our-team .section-item-curv i {
+  width: 60px;
+  height: 60px;
+  transition: var(--transition-regular);
+}
+
+.our-team:hover .section-item-curv i {
+  background-color: var(--color-primary);
+  color: var(--black-color);
+}
+
+.our-team-curv {
+  background-color: transparent !important;
+}
+
+/* Posicionan el bloque de texto */
+.team-info {
+  position: absolute;
+  left:20%;
+  bottom: 0;
+  z-index: 9;
+  padding: 20px;
+  color: var(--color-white);
 }
