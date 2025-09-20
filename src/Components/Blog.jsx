@@ -1,4 +1,4 @@
-import blogData from '../../Blog.json';
+import blogData from '../data/Blog.json';
 import { motion } from 'framer-motion';
 
 const Blog = () => {
