@@ -83,8 +83,8 @@ const Contact = () => {
         </div>
       </motion.div>
 
-      <div className='contact-wrapper lg:px-[12%] px-[8%] pb-[150px]'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-12'>
+      <div className='contact-wrapper lg:px-[12%] px-[8%] pb-[150px] mt-30'>
+        <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-12'>
           
           <div className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'>
             <i className='fa-solid fa-envelope text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
@@ -109,16 +109,26 @@ const Contact = () => {
           </div>
 
           <div className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'>
-            <i className='fa-solid fa-envelope text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
+            <i className='fa-solid fa-clock text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
             <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'> 
               Opening Hours
             </h4>
             <p className='text-[#999] text-base xl:text-xl group-hover:text-white'>
               Monday to Friday: 9:00 AM to 5:00 PM
             </p>
-            <i className='fa-solid fa-location-dot contact-item-icon'></i>
+            <i className='fa-solid fa-clock contact-item-icon'></i>
           </div>
 
+          <div className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'>
+            <i className='fa-solid fa-phone text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
+            <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'>
+              Call Us
+            </h4>
+            <p className='text-[#999] text-base xl:text-xl group-hover:text-white'>
+              +91-1234567890
+            </p>
+            <i className='fa-solid fa-phone contact-item-icon'></i>
+          </div>
 
         </div>
       </div>
