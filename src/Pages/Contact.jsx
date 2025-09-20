@@ -83,7 +83,7 @@ const Contact = () => {
         </div>
       </motion.div>
 
-      <div className='contact-wrapper lg:px-[12%] px-[8%] pb-[150px] mt-30'>
+      <div className='contact-wrapper lg:px-[12%] px-[8%] pb-[150px]'>
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-12'>
           
           <div className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'>

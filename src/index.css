@@ -353,3 +353,26 @@ la que parece cortar la esquina del propio elemento .curv. */
   padding: 20px;
   color: var(--color-white);
 }
+
+/* Contact */
+
+.contact-item-icon {
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  font-size: 8rem;
+  color: rgba(255, 255, 255, .1);
+  opacity: .5;
+}
+
+.contact-item {
+  transform: translateY(-70px);
+  transition: var(--transition-regular);
+}
+
+.contact-item:hover {
+  transform: translateY(-90px);
+  background-color: var(--prim-color);
+  color: var(--color-black);
+}
+
