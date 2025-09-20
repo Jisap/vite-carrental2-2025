@@ -18,6 +18,9 @@ import {
   test5 
 } from "../assets"
 import AboutComponent from "../Components/About"
+import Car from "../Components/Cars"
+import CarCategory from "../Components/CarCategory"
+import Banner from "../Components/Banner"
 
 
 
@@ -107,6 +110,8 @@ const About = () => {
 
       <div>
         <AboutComponent />
+        <Banner />
+        <CarCategory />
       </div>
     </>
   )
