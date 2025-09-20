@@ -132,6 +132,56 @@ const Contact = () => {
 
         </div>
       </div>
+
+      <div className='lg:px-[12%] px-[8%] pb-[150px]'>
+        <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 items-center'>
+          <div >
+            <h2 className='text-white text-3xl font-semibold mb-8 text-center'>
+              Get In Touch
+            </h2>
+            <form className='space-y-5 contact-inputs'>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                <input 
+                  type="text"
+                  placeholder="Name"
+                  className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
+                />
+                <input 
+                  type="email"
+                  placeholder="Email"
+                  className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
+                />
+              </div>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                <input 
+                  type="number"
+                  placeholder="Phone"
+                  className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
+                />
+                <input 
+                  type="text"
+                  placeholder="Subject"
+                  className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
+                />
+              </div>
+
+              <textarea 
+                rows="5"
+                placeholder="Message"
+                className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
+              />
+
+              <button type="submit" className='bg-primary hover:bg-white hover:text-black text-white font-bricolage px-14 py-4 text-xl rounded-full font-normal transition duration-300'>
+                Submit
+              </button>
+            </form>
+          </div>
+
+          <div>
+            
+          </div>
+        </div>
+      </div>
     </>
   )
 }
