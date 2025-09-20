@@ -61,28 +61,18 @@ const Cars = () => {
     return matchesSearch && matchesCategory && matchesPickup && matchesDropoff;
   })
 
-  // Variantes para la animación del contenedor de la lista de coches
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   // Variantes para la animación de cada tarjeta de coche
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: {
+    visible: (i) => ({
       y: 0,
       opacity: 1,
       transition: {
+        delay: i * 0.2,
         duration: 0.5,
         ease: 'easeOut',
       },
-    },
+    }),
     exit: {
       y: -20,
       opacity: 0,
@@ -92,21 +82,61 @@ const Cars = () => {
     },
   };
 
+  // Variantes para la animación del banner y su contenido
+  const bannerSectionVariants = {
+    hidden: { opacity: 0, y: 50 }, // Inicia 50px abajo y oculto
+    visible: {
+      opacity: 1,
+      y: 0, // Se desliza a su posición original
+      transition: {
+        duration: 0.8,
+        ease: 'easeOut',
+        delayChildren: 0.4, // Espera a que el banner entre para animar el texto
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const subtitleVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  };
+
+  const titleVariants = {
+    hidden: {}, // Necesario para que la orquestación funcione desde el padre
+    visible: { transition: { staggerChildren: 0.05 } }, // Orquesta la animación de cada letra
+  };
+
+  const letterVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { type: "spring", damping: 12, stiffness: 200 } },
+  };
+
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
         className='banner-section flex justify-center items-center h-[350px] lg:h-[550px]'
+        variants={bannerSectionVariants}
+        initial="hidden"
+        animate="visible"
       >
         <div className='banner-section-content text-center z-10'>
-          <h6 className='uppercase text-sm lg:text-xl text-white font-bricolage'> 
+          <motion.h6 className='uppercase text-sm lg:text-xl text-white font-bricolage' variants={subtitleVariants}>
             - RENT NOW -
-          </h6>
-          <h1 className='text-4xl lg:text-5xl xl:text-8xl font-semibold font-bricolage text-red-600'>
-            <span className='text-white font-bricolage'>Select</span> Luxury Car
-          </h1>
+          </motion.h6>
+          <motion.h1 className='text-4xl lg:text-5xl xl:text-8xl font-semibold font-bricolage text-red-600' variants={titleVariants}>
+            <span className='text-white font-bricolage'>
+              {'Select'.split('').map((char, index) => (<motion.span key={`char-select-${index}`} variants={letterVariants} style={{ display: 'inline-block' }}>{char}</motion.span>))}
+            </span>
+            {' '}
+            {'Luxury'.split('').map((char, index) => (<motion.span key={`char-luxury-${index}`} variants={letterVariants} style={{ display: 'inline-block' }}>{char}</motion.span>))}
+            {' '}
+            {'Car'.split('').map((char, index) => (<motion.span key={`char-car-${index}`} variants={letterVariants} style={{ display: 'inline-block' }}>{char}</motion.span>))}
+          </motion.h1>
         </div>
       </motion.div>
 
@@ -186,23 +216,24 @@ const Cars = () => {
         </motion.div>
 
         <motion.div layout className='flex-1'>
-          <motion.div layout className='grid grid-cols-1 xl:grid-cols-2 gap-6'>
+          <div className='grid grid-cols-1 xl:grid-cols-2 gap-6'>
             <AnimatePresence>
               {filteredCars.length > 0 ? (
-                filteredCars.map((car) => (
+                filteredCars.map((car, index) => (
                   <motion.div
                     layout
                     key={car.id}
                     variants={itemVariants}
                     initial="hidden"
                     animate="visible"
+                    custom={index}
                     exit="exit"
                     className="car-item group bg-[#1e1f22] relative w-full overflow-hidden rounded-lg"
                   >
                     <div className="car-image w-full relative h-[250px] overflow-hidden after:content-[''] after:absolute after:inset-0 after:z-0 after:bg-gradient-to-b after:from-transparent after:to-[#1E1F22]">
                       <img
                         src={car.image}
-                        alt={car.title}
+                        alt={car.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
                       />
                       <div className="car-info absolute bottom-0 p-5 left-0 z-10">
@@ -252,7 +283,7 @@ const Cars = () => {
                 </motion.p>
               )}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </>

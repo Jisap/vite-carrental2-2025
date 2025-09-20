@@ -6,6 +6,7 @@ import Index from "./Pages/Index";
 import Cars from "./Pages/Cars";
 import CarDetails from "./Pages/CarDetails";
 import Footer from "./Components/Footer";
+import About from "./Pages/About";
 
 
 
@@ -46,6 +47,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Index />}></Route>
           <Route path="/cars" element={<Cars />}></Route>
+          <Route path="/about" element={<About />}></Route>
           <Route path="/car/:id" element={<CarDetails />}></Route>
         </Routes>
         <Footer />

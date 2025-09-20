@@ -26,6 +26,9 @@ import test3 from './test-3.jpg';
 import test4 from './test-4.jpg';
 import test5 from './test-5.jpg';
 
+import about from './about.jpg';
+
+
 export {
   brand1,
   brand2,
@@ -52,4 +55,5 @@ export {
   test3,
   test4,
   test5,
+  about
 };
