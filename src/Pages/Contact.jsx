@@ -134,7 +134,7 @@ const Contact = () => {
       </div>
 
       <div className='lg:px-[12%] px-[8%] pb-[150px]'>
-        <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 items-center'>
+        <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center'>
           <div >
             <h2 className='text-white text-3xl font-semibold mb-8 text-center'>
               Get In Touch
@@ -177,8 +177,8 @@ const Contact = () => {
             </form>
           </div>
 
-          <div>
-            
+          <div className='w-full h-[400px] rounded-2xl overflow-hidden'>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194347.47827013533!2d-3.8443434641882797!3d40.43809861029714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid!5e0!3m2!1ses!2ses!4v1758390468603!5m2!1ses!2ses" width="600" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
