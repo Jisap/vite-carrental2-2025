@@ -8,6 +8,7 @@ import CarDetails from "./Pages/CarDetails";
 import Footer from "./Components/Footer";
 import About from "./Pages/About";
 import Blog from "./Pages/Blog";
+import Contact from "./Pages/Contact";
 
 
 
@@ -50,6 +51,7 @@ function App() {
           <Route path="/cars" element={<Cars />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
           <Route path="/car/:id" element={<CarDetails />}></Route>
         </Routes>
         <Footer />
