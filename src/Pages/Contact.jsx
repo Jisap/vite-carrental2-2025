@@ -1,4 +1,7 @@
 import { motion } from 'framer-motion';
+import AnimatedLetters from '../Components/AnimatedLetters';
+import ContactCard from '../Components/ContactCard';
+import FormField from '../Components/FormField';
 
 const Contact = () => {
 
@@ -73,6 +76,29 @@ const Contact = () => {
     },
   };
 
+  const contactInfo = [
+    {
+      iconClass: 'fa-solid fa-envelope',
+      title: 'Email Us',
+      text: 'redilux@example.com',
+    },
+    {
+      iconClass: 'fa-solid fa-location-dot',
+      title: 'Our address',
+      text: 'Vadodara, Water Tower, Office 123',
+    },
+    {
+      iconClass: 'fa-solid fa-clock',
+      title: 'Opening Hours',
+      text: 'Monday to Friday: 9:00 AM to 5:00 PM',
+    },
+    {
+      iconClass: 'fa-solid fa-phone',
+      title: 'Call Us',
+      text: '+91-1234567890',
+    },
+  ];
+
   return (
     <>
       <motion.div
@@ -88,10 +114,9 @@ const Contact = () => {
           </motion.h6>
           <motion.h1 className='text-4xl lg:text-5xl xl:text-8xl font-semibold font-bricolage text-red-600' variants={titleVariants}>
             <span className='text-white font-bricolage'>
-              {'Contact'.split('').map((char, index) => (<motion.span key={`char-luxury-${index}`} variants={letterVariants} style={{ display: 'inline-block' }}>{char}</motion.span>))}
+              <AnimatedLetters text="Contact" variants={letterVariants} baseKey="char-contact" />
             </span>
-            {' '}
-            {'Us'.split('').map((char, index) => (<motion.span key={`char-car-${index}`} variants={letterVariants} style={{ display: 'inline-block' }}>{char}</motion.span>))}
+            <AnimatedLetters text=" Us" variants={letterVariants} baseKey="char-us" />
           </motion.h1>
         </div>
       </motion.div>
@@ -104,67 +129,16 @@ const Contact = () => {
         viewport={{ once: false }}
       >
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-12'>
-          
-          <motion.div
-            className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'
-            variants={contactCardVariants}
-            whileHover={{ y: -90, transition: { duration: 0.3 } }}
-          >
-            <i className='fa-solid fa-envelope text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
-            <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'> 
-              Email Us
-            </h4>
-            <p className='text-[#999] text-base xl:text-xl group-hover:text-white'>
-              redilux@example.com
-            </p>
-            <i className='fa-solid fa-envelope contact-item-icon'></i>
-          </motion.div>
-
-          <motion.div
-            className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'
-            variants={contactCardVariants}
-            whileHover={{ y: -90, transition: { duration: 0.3 } }}
-          >
-            <i className='fa-solid fa-envelope text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
-            <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'> 
-              Our address
-            </h4>
-            <p className='text-[#999] text-base xl:text-xl group-hover:text-white'>
-              Vadodara, Water Tower, Office 123
-            </p>
-            <i className='fa-solid fa-location-dot contact-item-icon'></i>
-          </motion.div>
-
-          <motion.div
-            className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'
-            variants={contactCardVariants}
-            whileHover={{ y: -90, transition: { duration: 0.3 } }}
-          >
-            <i className='fa-solid fa-clock text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
-            <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'> 
-              Opening Hours
-            </h4>
-            <p className='text-[#999] text-base xl:text-xl group-hover:text-white'>
-              Monday to Friday: 9:00 AM to 5:00 PM
-            </p>
-            <i className='fa-solid fa-clock contact-item-icon'></i>
-          </motion.div>
-
-          <motion.div
-            className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'
-            variants={contactCardVariants}
-            whileHover={{ y: -90, transition: { duration: 0.3 } }}
-          >
-            <i className='fa-solid fa-phone text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
-            <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'>
-              Call Us
-            </h4>
-            <p className='text-[#999] text-base xl:text-xl group-hover:text-white'>
-              +91-1234567890
-            </p>
-            <i className='fa-solid fa-phone contact-item-icon'></i>
-          </motion.div>
-
+          {contactInfo.map((item, index) => (
+            <ContactCard
+              key={index}
+              iconClass={item.iconClass}
+              title={item.title}
+              text={item.text}
+              variants={contactCardVariants}
+              whileHover={{ y: -90, transition: { duration: 0.3 } }}
+            />
+          ))}
         </div>
       </motion.div>
 
@@ -182,34 +156,18 @@ const Contact = () => {
             </h2>
             <form className='space-y-5 contact-inputs'>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                <input 
-                  type="text"
-                  placeholder="Name"
-                  className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
-                />
-                <input 
-                  type="email"
-                  placeholder="Email"
-                  className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
-                />
+                <FormField type="text" placeholder="Name" />
+                <FormField type="email" placeholder="Email" />
               </div>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                <input 
-                  type="number"
-                  placeholder="Phone"
-                  className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
-                />
-                <input 
-                  type="text"
-                  placeholder="Subject"
-                  className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
-                />
+                <FormField type="number" placeholder="Phone" />
+                <FormField type="text" placeholder="Subject" />
               </div>
 
-              <textarea 
+              <FormField
+                as="textarea"
                 rows="5"
                 placeholder="Message"
-                className='bg-[#222222] text-white palceholder-gray-400 rounded-md px-6 py-5 w-full outline-none'
               />
 
               <button type="submit" className='bg-primary hover:bg-white hover:text-black text-white font-bricolage px-14 py-4 text-xl rounded-full font-normal transition duration-300'>
