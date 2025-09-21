@@ -2,7 +2,7 @@ import React from 'react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { test1, test2, test3, test4, test5 } from '../assets'
-import CurvedCornerIcon from '../../CurvedCornerIcon';
+import CurvedCornerIcon from '../Components/CurvedCornerIcon';
 
 const teamMembers = [
   {
