@@ -60,6 +60,19 @@ const Contact = () => {
     visible: { y: 0, opacity: 1, transition: { type: "spring", damping: 12, stiffness: 200 } },
   };
 
+  // Variantes para las tarjetas de contacto
+  const contactCardVariants = {
+    hidden: { y: -50, opacity: 0 },
+    visible: {
+      y: -70,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <>
       <motion.div
@@ -83,10 +96,20 @@ const Contact = () => {
         </div>
       </motion.div>
 
-      <div className='contact-wrapper lg:px-[12%] px-[8%] pb-[150px]'>
+      <motion.div
+        className='contact-wrapper lg:px-[12%] px-[8%] pb-[150px]'
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+      >
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-12'>
           
-          <div className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'>
+          <motion.div
+            className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'
+            variants={contactCardVariants}
+            whileHover={{ y: -90, transition: { duration: 0.3 } }}
+          >
             <i className='fa-solid fa-envelope text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
             <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'> 
               Email Us
@@ -95,9 +118,13 @@ const Contact = () => {
               redilux@example.com
             </p>
             <i className='fa-solid fa-envelope contact-item-icon'></i>
-          </div>
+          </motion.div>
 
-          <div className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'>
+          <motion.div
+            className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'
+            variants={contactCardVariants}
+            whileHover={{ y: -90, transition: { duration: 0.3 } }}
+          >
             <i className='fa-solid fa-envelope text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
             <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'> 
               Our address
@@ -106,9 +133,13 @@ const Contact = () => {
               Vadodara, Water Tower, Office 123
             </p>
             <i className='fa-solid fa-location-dot contact-item-icon'></i>
-          </div>
+          </motion.div>
 
-          <div className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'>
+          <motion.div
+            className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'
+            variants={contactCardVariants}
+            whileHover={{ y: -90, transition: { duration: 0.3 } }}
+          >
             <i className='fa-solid fa-clock text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
             <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'> 
               Opening Hours
@@ -117,9 +148,13 @@ const Contact = () => {
               Monday to Friday: 9:00 AM to 5:00 PM
             </p>
             <i className='fa-solid fa-clock contact-item-icon'></i>
-          </div>
+          </motion.div>
 
-          <div className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'>
+          <motion.div
+            className='contact-item w-full group overflow-hidden relative bg-[#222222] p-12 text-white rounded-xl'
+            variants={contactCardVariants}
+            whileHover={{ y: -90, transition: { duration: 0.3 } }}
+          >
             <i className='fa-solid fa-phone text-red-600 text-5xl group-hover:text-white transition-colors duration-300'></i>
             <h4 className='font-bricolage text-2xl lg:text-4xl font-semibold mt-8 mb-2 group-hover:text-white'>
               Call Us
@@ -128,14 +163,20 @@ const Contact = () => {
               +91-1234567890
             </p>
             <i className='fa-solid fa-phone contact-item-icon'></i>
-          </div>
+          </motion.div>
 
         </div>
-      </div>
+      </motion.div>
 
-      <div className='lg:px-[12%] px-[8%] pb-[150px]'>
+      <motion.div
+        className='lg:px-[12%] px-[8%] pb-[150px]'
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+      >
         <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center'>
-          <div >
+          <motion.div variants={itemVariants}>
             <h2 className='text-white text-3xl font-semibold mb-8 text-center'>
               Get In Touch
             </h2>
@@ -175,13 +216,16 @@ const Contact = () => {
                 Submit
               </button>
             </form>
-          </div>
+          </motion.div>
 
-          <div className='w-full h-[400px] rounded-2xl overflow-hidden'>
+          <motion.div
+            className='w-full h-[400px] rounded-2xl overflow-hidden'
+            variants={itemVariants}
+          >
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194347.47827013533!2d-3.8443434641882797!3d40.43809861029714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid!5e0!3m2!1ses!2ses!4v1758390468603!5m2!1ses!2ses" width="600" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }
